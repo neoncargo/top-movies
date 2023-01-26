@@ -5,11 +5,9 @@ import httpx
 
 app = FastAPI()
 
-templates = Jinja2Templates(directory="templates")
+TEMPLATES = Jinja2Templates(directory="templates")
 
-most_popular_url = "https://imdb-api.com/en/API/MostPopularMovies/k_ofriojs4"
-
-image_formats = ("._V1_QL75_UY562_CR1,0,380,562.jpg", "@._V1_QL75_UY562_CR1,0,380,562.jpg")
+MOST_POPULAR_URL = "https://imdb-api.com/en/API/MostPopularMovies/k_ofriojs4"
 
 
 def insert_quality(url: str) -> str:
