@@ -1,0 +1,164 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ------------------------------- */
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+/* ------------------------------- */
+
+.material-icons.md-36 { font-size: 36px; }
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #1c1c1c;
+  color: white;
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+
+  display: grid;
+  grid-template-rows: 4em 3em auto 4em;
+}
+
+header, footer {
+  background-color: #0c0c0c;
+  padding: 0 1em;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  justify-content: center;
+
+}
+header *:nth-child(1) { margin-right: auto; }
+header *:nth-child(3) { margin-left: auto; }
+header * { margin: auto 0; }
+
+header h1 { font-size: 2em; }
+
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.login {
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
+}
+
+input[type=text] {
+  padding: 0.5em 1em;
+  border: solid 1px;
+  border-radius: 5px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  justify-content: center;
+  gap: 1em;
+  padding: 2em 2em;
+}
+
+.movie {
+  box-sizing: border-box;
+  height: 400px;
+  width: 250px;
+  padding: 1em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(92, 83, 83);
+  border-image: initial;
+  border-radius: 5%;
+  outline: transparent solid 1px;
+  transition: outline-color 0.1s ease 0s;
+}
+
+.movie:hover {
+  outline-color: white;
+}
+
+.inner-movie {
+  height: 100%;
+  width: 100%;
+}
+
+.inner-movie p {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.img-section {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  object-fit: contain;
+  max-width: 100%;
+}
