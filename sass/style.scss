@@ -8,13 +8,16 @@ html {
 }
 
 body {
-  display: grid;
-  grid-template-rows: 4em 3em auto 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 header, footer {
   background-color: #0c0c0c;
   padding: 0 1em;
+  height: 4em;
 }
 
 header {
