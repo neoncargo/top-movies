@@ -1,0 +1,39 @@
+.movie {
+
+box-sizing: border-box;
+height: 400px;
+width: var(--movie-width);
+padding: 1em;
+border: solid 1px rgb(92, 83, 83);
+border-radius: 5%;
+outline: transparent solid 1px;
+transition: all 0.1s ease 0s;
+
+&:hover {
+  outline-color: white;
+  background-color: #3d3d3d;
+}
+
+.inner-movie {
+  height: 100%;
+  width: 100%;
+
+  .img-section {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    img {
+      object-fit: contain;
+      max-width: 100%;
+    }
+  }
+
+  p {
+    margin-top: 1em;
+    text-align: center;
+  }
+}
+
+}
