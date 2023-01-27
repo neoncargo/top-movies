@@ -1,5 +1,5 @@
 API_VERSIONS = ("@@._V1_", "@._V1_", "._V1_")
-POSTFIX1 = "QL75_UY500_"
+DEFAULT_FORMAT = "QL75_UY500_"
 
 
 class ImgUrl:
@@ -14,8 +14,8 @@ class ImgUrl:
         self.url = url[:i]
         self.api_version = v
 
-    def serialize(self, postfix: str = POSTFIX1) -> str:
-        url = self.url + self.api_version + postfix + ".jpg"
+    def serialize(self, img_format: str = DEFAULT_FORMAT) -> str:
+        url = self.url + self.api_version + img_format + ".jpg"
         return url
 
     url: str
