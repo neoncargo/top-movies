@@ -134,11 +134,12 @@ input[type=text] {
   border-image: initial;
   border-radius: 5%;
   outline: transparent solid 1px;
-  transition: outline-color 0.1s ease 0s;
+  transition: all 0.1s ease 0s;
 }
 
 .movie:hover {
   outline-color: white;
+  background-color: #3d3d3d;
 }
 
 .inner-movie {
