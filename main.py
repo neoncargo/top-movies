@@ -6,6 +6,8 @@ import httpx
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from pydantic import BaseModel
 
+from img_url import ImgUrl
+
 app = FastAPI()
 
 TEMPLATES = Jinja2Templates(directory="templates")
@@ -78,13 +80,6 @@ async def read_users_me(current_user: User = Depends(get_current_user)):
 
 
 # --------------------------------------------
-def insert_quality(url: str) -> str:
-    i = url.find("_V1_")
-    if i == -1:
-        raise ValueError("Didn't found in: " + url)
-
-    return url[:(i + 4)] + "QL60_" + url[(i + 4):]
-
 
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):
@@ -95,7 +90,7 @@ async def root(request: Request):
         movies = []
         for i in range(100):
             movie = response["items"][i]
-            image_url = movie["image"]
+            image_url = ImgUrl(movie["image"]).serialize()
             movies.append({"image_url": image_url, "title": movie["title"]})
 
     return TEMPLATES.TemplateResponse("index.html.jinja", {"request": request, "movies": movies})
