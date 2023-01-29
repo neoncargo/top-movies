@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
-from routers import index, login
+from routers.index import index
+from routers import login
 
 app = FastAPI()
 
