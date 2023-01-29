@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Top Movies</title>
+    <title>Login</title>
 
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
     </style>
+
+      <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -20,30 +23,25 @@
           <button type="submit" class="home"><span class="material-icons md-36">&#xe88a;</span></button>
         </form>
         <h1>Top Movies</h1>
-        <form action="/login" method="get">
-          <button type="submit" class="login">Login</button>
-        </form>
     </header>
 
-    <div class="search-container">
-      <input type="text" placeholder="Search..">
-    </div>
 
-    <div class="content">
-
-    {% for movie in movies %}
-      <div class="movie">
-        <div class="inner-movie">
-          <div class="img-section"><img src="{{ movie.image_url }}" alt=""></div>
-          <p>{{ movie.title }}</p>
-        </div>
-      </div>
-    {% endfor %}
-
+    <div class="login-container">
+      <form id="form" action="/api/v1/login/token" method="post" class="login-form">
+        <input type="text" placeholder="Username..."  name="username" required>
+        <input type="password" placeholder="Password..." name="password" required>
+        <button type="submit" class="login">Login</button>
+      </form>
     </div>
 
     <footer>
       <a href="/about">About</a>
     </footer>
+
+    <script src="index.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
   </body>
 </html>
