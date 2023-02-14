@@ -38,6 +38,21 @@ header {
   border: solid 1px;
   border-radius: 5px;
   padding: 0.5em 1em;
+
+  transition: all 0.2s ease 0s;
+
+  &:focus, &:hover {
+    background-color: #464646;
+  }
+
+  &:active {
+    background-color: #5b805b;
+  }
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 1em;
 }
 
 .search-container {
