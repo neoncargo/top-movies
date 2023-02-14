@@ -7,24 +7,21 @@ function sendData(form) {
     localStorage.setItem("access_token", response.access_token);
   });
 
-  XHR.open("POST", "http://localhost/api/v1/login/token");
+  XHR.open("POST", "http://localhost/api/v1/users/");
   XHR.send(FD);
 }
 
-function check() {
-  let XHR = new XMLHttpRequest();
-  XHR.open("GET", "http://localhost/api/v1/login/secure");
-  XHR.setRequestHeader("Authorization", "Bearer " + localStorage.getItem('access_token'));
-  XHR.send();
-}
-
 const form = document.getElementById("form");
-const submitButton = document.getElementById("login");
+const submitButton = document.getElementById("register");
 
 window.addEventListener("load", () => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     sendData(form);
+  });
+
+  submitButton.addEventListener("mousedown", (event) => {
+    event.preventDefault();
   });
 });

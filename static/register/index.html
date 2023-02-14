@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Top Movies</title>
+    <title>Register - Top Movies</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,10 +22,10 @@
     </header>
 
     <div class="login-container">
-      <form id="form" action="/api/v1/login/token" method="post" class="login-form">
+      <form id="form" action="/api/v1/users/new" method="post" class="login-form">
         <input class="input-login" type="text" placeholder="Username..."  name="username" required>
         <input class="input-login" type="password" placeholder="Password..." name="password" required>
-        <button id="login" class="login" type="submit" name="action">Login</button>
+        <button id="register" class="login" type="submit" name="action">Register</button>
       </form>
     </div>
 
