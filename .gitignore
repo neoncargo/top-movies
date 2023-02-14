@@ -1,4 +1,4 @@
-.idea
-.sass*
+.*
+!.gitignore
 static/stylesheets
 __*
