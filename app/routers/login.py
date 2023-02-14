@@ -102,6 +102,6 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     return {"access_token": access_token, "token_type": "bearer"}
 
 
-@router.get("/secure", )
+@router.get("/secure")
 async def secure(current_user: User = Depends(get_current_user)):
     return "You have token"
