@@ -1,9 +1,16 @@
-@use 'reset';
-@use 'movie';
-@use 'login';
+@use 'common/reset';
+
+@use 'common/button';
+
+@use 'common/header_footer';
+
+@use 'index/index';
+@use 'index/movie-card';
+
+@use 'forms/form-section';
 
 :root {
-  --movie-width: 250px;
+  --movie-card-width: 250px;
 }
 
 html {
@@ -17,64 +24,4 @@ body {
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-}
-
-header, footer {
-  background-color: #0c0c0c;
-  padding: 0 1em;
-  height: 4em;
-}
-
-header {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-
-  .material-icons.md-36 { font-size: 36px; }
-
-  *:nth-child(1) { margin-right: auto; }
-  *:nth-child(3) { margin-left: auto; }
-  * { margin: auto 0; }
-
-  h1 { font-size: 2em; }
-}
-
-.login {
-  border: solid 1px;
-  border-radius: 5px;
-  padding: 0.5em 1em;
-
-  transition: all 0.2s ease 0s;
-
-  &:focus, &:hover {
-    background-color: #464646;
-  }
-
-  &:active {
-    background-color: #5b805b;
-  }
-}
-
-.auth-buttons {
-  display: flex;
-  gap: 1em;
-}
-
-.search-container {
-  display: flex;
-  justify-content: center;
-  padding-top: 1em;
-
-  input[type=text] {
-    padding: 0.5em 1em;
-    border: solid 1px;
-    border-radius: 5px;
-  }
-}
-
-.content {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, var(--movie-width));
-  justify-content: center;
-  gap: 1em;
-  padding: 2em 2em;
 }

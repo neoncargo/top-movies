@@ -1,55 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Top Movies</title>
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Top Movies</title>
 
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-    </style>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+      </style>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" href="/stylesheets/style.css">
-  </head>
-  <body>
-    <header>
-        <form action="/" method="get">
-          <button type="submit" class="home"><span class="material-icons md-36">&#xe88a;</span></button>
-        </form>
-        <h1>Top Movies</h1>
-        <div class="auth-buttons">
-          <form action="/login" method="get">
-            <button type="submit" class="login">Login</button>
+      <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
+    <body>
+      <header>
+          <form action="/" method="get">
+            <button type="submit" class="home"><span class="material-icons md-36">&#xe88a;</span></button>
           </form>
-          <form action="/register" method="get">
-            <button type="submit" class="login">Register</button>
-          </form>
-        </div>
+          <h1>Top Movies</h1>
+          <div class="auth-buttons">
+            <form action="/login" method="get">
+              <button class="button" type="submit">Login</button>
+            </form>
+            <form action="/register" method="get">
+              <button class="button" type="submit">Register</button>
+            </form>
+          </div>
 
-    </header>
+      </header>
 
-    <div class="search-container">
-      <input type="text" placeholder="Search..">
-    </div>
-
-    <div class="content">
-
-    {% for movie in movies %}
-      <div class="movie">
-        <div class="inner-movie">
-          <div class="img-section"><img src="{{ movie.image_url }}" alt=""></div>
-          <p>{{ movie.title }}</p>
-        </div>
+      <div class="search-container">
+        <input type="text" placeholder="Search..">
       </div>
-    {% endfor %}
 
-    </div>
+      <div class="index-content">
 
-    <footer>
-      <a href="/about">About</a>
-    </footer>
-  </body>
-</html>
+        {% for movie in movies %}
+          <div class="movie-card">
+            <div class="inner-movie">
+              <div class="img-section"><img src="{{ movie.image_url }}" alt=""></div>
+              <p>{{ movie.title }}</p>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+
+      <footer>
+        <a href="/about">About</a>
+      </footer>
+    </body>
+  </html>

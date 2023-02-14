@@ -1,9 +1,9 @@
-.login-container {
+.form-section {
   display: flex;
   justify-content: center;
 }
 
-.login-form {
+.form-container {
   box-sizing: border-box;
 
   height: 250px;
@@ -17,7 +17,7 @@
   align-items: center;
   gap: 1em;
 
-  input.input-login {
+  input[type=text], input[type=password] {
     width: 80%;
     height: 1.5em;
     border: 1px solid white;

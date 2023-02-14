@@ -1,0 +1,23 @@
+header, footer {
+  background-color: #0c0c0c;
+  padding: 0 1em;
+  height: 4em;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+
+  .material-icons.md-36 { font-size: 36px; }
+
+  *:nth-child(1) { margin-right: auto; }
+  *:nth-child(3) { margin-left: auto; }
+  * { margin: auto 0; }
+
+  h1 { font-size: 2em; }
+
+  .auth-buttons {
+    display: flex;
+    gap: 1em;
+  }
+}
