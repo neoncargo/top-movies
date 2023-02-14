@@ -2,6 +2,10 @@
 @use 'movie';
 @use 'login';
 
+:root {
+  --movie-width: 250px;
+}
+
 html {
   font-family: 'Montserrat', sans-serif;
   background-color: #1c1c1c;
@@ -65,10 +69,6 @@ header {
     border: solid 1px;
     border-radius: 5px;
   }
-}
-
-:root {
-  --movie-width: 250px;
 }
 
 .content {
