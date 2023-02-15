@@ -2,12 +2,14 @@
 
 border: solid 1px;
 border-radius: 5px;
-padding: 0.5em 1em;
+padding: 0.6em 1em;
 
 transition: all 0.2s ease 0s;
 
+font-weight: bold;
+
 &:focus, &:hover {
-	background-color: #464646;
+	filter: brightness(75%);
 }
 
 &:active {
