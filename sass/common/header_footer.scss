@@ -19,12 +19,13 @@ header {
   *:nth-child(3) { margin-left: auto; }
   * { margin: auto 0; }
 
-  h1 {
-    font-size: 2em;
+  h1 { font-size: 2em; }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+  .home {
+    transition: all 0.2s ease 0s;
+
+    &:focus, &:hover {
+      filter: brightness(75%);
     }
   }
 
