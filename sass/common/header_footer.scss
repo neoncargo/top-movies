@@ -2,6 +2,11 @@ header, footer {
   background-color: #0c0c0c;
   padding: 0 1.5em 0 1em;
   height: 4em;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 header {
