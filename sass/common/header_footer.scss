@@ -3,6 +3,8 @@ header, footer {
   padding: 0 1.5em 0 1em;
   height: 4em;
 
+  * { margin: auto 0; }
+
   a {
     text-decoration: none;
     color: inherit;
@@ -17,7 +19,6 @@ header {
 
   *:nth-child(1) { margin-right: auto; }
   *:nth-child(3) { margin-left: auto; }
-  * { margin: auto 0; }
 
   h1 { font-size: 2em; }
 
