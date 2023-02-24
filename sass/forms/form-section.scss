@@ -3,27 +3,44 @@
   justify-content: center;
 }
 
-.form-container {
+.common-form-container {
   box-sizing: border-box;
 
-  height: 250px;
+  width: 300px;
 
-  border: 1px solid white;
+  border: 1px solid var(--content-border-color);
   border-radius: 5px;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 1em;
+  padding: 1em 0;
 
   input[type=text], input[type=password] {
-    width: 80%;
-    height: 1.5em;
-    border: 1px solid white;
+    box-sizing: border-box;
+    width: 85%;
+    height: 2.5em;
+    border: 1px solid var(--content-border-color);
     border-radius: 5px;
-    background-color: #dfdfdf;
+    background-color: #292d2e;
     padding: 0.2em 0.3em;
-    color: black;
+    color: white;
   }
+
+  input[type=password]:nth-child(3) { margin-top: -1em; }
+
+  button {
+    box-sizing: border-box;
+    width: 85%;
+    text-align: center;
+  }
+}
+
+.register-form {
+  height: 275px;
+}
+
+.login-form {
+  height: 225px;
 }

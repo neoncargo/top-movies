@@ -21,13 +21,13 @@
         <h1>Top Movies</h1>
         <div class="auth-buttons">
           <form action="/register" method="get">
-            <button class="button green" type="submit">Register</button>
+            <button class="button green-button" type="submit">Register</button>
           </form>
         </div>
     </header>
 
     <div class="form-section">
-      <form id="form" class="form-container" action="/api/v1/login/token" method="post">
+      <form id="form" class="common-form-container login-form" action="/api/v1/login/token" method="post">
         <input type="text" placeholder="Username..."  name="username" required>
         <input type="password" placeholder="Password..." name="password" required>
         <button id="login" class="button" type="submit" name="action">Login</button>

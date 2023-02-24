@@ -1,7 +1,6 @@
-@use 'common/reset';
+@use 'reset';
 
 @use 'common/button';
-@use 'common/green';
 
 @use 'common/header_footer';
 
@@ -11,13 +10,20 @@
 @use 'forms/form-section';
 
 :root {
+  --text-color: white;
+  --common-background-color: #1c1c1c;
+  --header-footer-background-color: #0c0c0c;
+
+  --button-border-color: #a1a1a1;
+  --content-border-color: #585858;
+
   --movie-card-width: 250px;
 }
 
 html {
   font-family: 'Montserrat', sans-serif;
-  background-color: #1c1c1c;
-  color: white;
+  background-color: var(--common-background-color);
+  color: var(--text-color);
 }
 
 body {

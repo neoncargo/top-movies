@@ -5,7 +5,7 @@
 
   input[type=text] {
     padding: 0.5em 1em;
-    border: solid 1px;
+    border: solid 1px var(--content-border-color);
     border-radius: 5px;
   }
 }

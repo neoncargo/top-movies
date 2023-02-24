@@ -4,14 +4,13 @@ box-sizing: border-box;
 height: 400px;
 width: var(--movie-card-width);
 padding: 1em;
-border: solid 1px rgb(92, 83, 83);
+border: solid 1px var(--content-border-color);
 border-radius: 5%;
-outline: transparent solid 1px;
+outline: solid 1px transparent;
 transition: all 0.1s ease 0s;
 
 &:hover {
   outline-color: white;
-  background-color: #3d3d3d;
 }
 
 .inner-movie {
