@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 
 import httpx
 
-from .img_url import ImgUrl, DEFAULT_FORMAT
+from app.services.img_url import ImgUrl, DEFAULT_FORMAT
 
 TEMPLATES = Jinja2Templates(directory="../templates")
 MOST_POPULAR_URL = "https://imdb-api.com/en/API/MostPopularMovies/k_ofriojs4"
@@ -24,4 +24,5 @@ async def index(request: Request):
             image_url = ImgUrl(movie["image"]).serialize(DEFAULT_FORMAT)
             movies.append({"image_url": image_url, "title": movie["title"]})
 
-    return TEMPLATES.TemplateResponse("index.html.jinja", {"request": request, "movies": movies})
+    return TEMPLATES.TemplateResponse("index.html.jinja",
+                                      {"request": request, "movies": movies})
