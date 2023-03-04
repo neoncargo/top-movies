@@ -1,6 +1,6 @@
 .*
 !.gitignore
 static/stylesheets
-__*
+__pycache__
 venv
 *.egg-info
