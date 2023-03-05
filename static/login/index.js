@@ -1,14 +1,16 @@
-function sendData(form) {
+function sendData() {
   const XHR = new XMLHttpRequest();
-  const FD = new FormData(form);
 
   XHR.addEventListener("load", (event) => {
     response = JSON.parse(event.target.responseText);
     localStorage.setItem("access_token", response.access_token);
   });
 
-  XHR.open("POST", "http://localhost/api/v1/login/token");
-  XHR.send(FD);
+  to_send = JSON.stringify({username: username.value, password: password.value});
+
+  XHR.open("POST", "http://localhost/api/v1/users/login");
+  XHR.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  XHR.send(to_send);
 }
 
 function check() {
@@ -19,12 +21,16 @@ function check() {
 }
 
 const form = document.getElementById("form");
+
+const username = document.getElementById("username");
+const password = document.getElementById("password");
+
 const submitButton = document.getElementById("login");
 
 window.addEventListener("load", () => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    sendData(form);
+    sendData();
   });
 });
