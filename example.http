@@ -2,8 +2,16 @@ POST http://localhost/api/v1/users/
 content-type: application/json
 
 {
-    "username": "asds",
+    "username": "coyote",
     "password": "123"
 }
 
 ###
+
+GET http://localhost/api/v1/login/token
+content-type: application/json
+
+{
+    "username": "coyote",
+    "password": "123"
+}
