@@ -17,7 +17,7 @@ def get_users(db: Session, skip: int = 0, limit: int = 100):
     return db.query(domain.User).offset(skip).limit(limit).all()
 
 
-def create_user(db: Session, user: schemas.UserCreate):
+def create_user(db: Session, user: schemas.UserAuthenticate):
     hash = security.hash_password(user.password)
     db_user = domain.User(username=user.username, password_hash=hash)
     db.add(db_user)
