@@ -10,14 +10,14 @@ from app.services import jwt, security
 router = APIRouter()
 
 
-response_401_example = {
+RESPONCE_401 = {
     "content": {
         "application/json": {
             "example": {"detail": "Incorrect username or password"},
         }
     },
 }
-response_409_example = {
+RESPONCE_409 = {
     "content": {
         "application/json": {
             "example": {"detail": "Username is taken"},
@@ -30,7 +30,7 @@ response_409_example = {
     "/login",
     response_model=schemas.token.Token,
     responses={
-        401: response_401_example,
+        401: RESPONCE_401,
     },
 )
 async def login_for_access_token(
@@ -58,7 +58,7 @@ async def login_for_access_token(
     "",
     response_model=schemas.token.Token,
     responses={
-        409: response_409_example,
+        409: RESPONCE_409,
     },
 )
 async def register_user(
