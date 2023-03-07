@@ -9,7 +9,7 @@
 		--no-source-map \
 		--watch sass/style.scss:static/stylesheets/style.css
 
-### set nginx config
+### Set nginx config
 
 	sudo cp configs/nginx.conf /etc/nginx/ && sudo nginx -s reload
 
