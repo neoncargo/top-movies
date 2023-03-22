@@ -17,8 +17,8 @@ header {
 
   .material-icons.md-36 { font-size: 36px; }
 
-  *:nth-child(1) { margin-right: auto; }
-  *:nth-child(3) { margin-left: auto; }
+  > *:nth-child(1) { margin-right: auto; }
+  > *:nth-child(3) { margin-left: auto; }
 
   h1 { font-size: 2em; }
 
