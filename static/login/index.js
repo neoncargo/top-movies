@@ -5,6 +5,7 @@ function sendData() {
     response = JSON.parse(event.target.responseText);
     if (response.access_token) {
         localStorage.setItem("access_token", response.access_token);
+        window.location.href = "/";
     }
   });
 
