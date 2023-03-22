@@ -3,7 +3,9 @@ function sendData() {
 
   XHR.addEventListener("load", (event) => {
     response = JSON.parse(event.target.responseText);
-    localStorage.setItem("access_token", response.access_token);
+    if (response.access_token) {
+        localStorage.setItem("access_token", response.access_token);
+    }
   });
 
   to_send = JSON.stringify({username: username.value, password: password.value});
