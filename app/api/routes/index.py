@@ -21,7 +21,12 @@ async def index(request: Request):
         movies = []
         for i in range(100):
             movie = response["items"][i]
-            image_url = ImgUrl(movie["image"]).serialize(DEFAULT_FORMAT)
+            try:
+                image_url = ImgUrl(movie["image"]).serialize(DEFAULT_FORMAT)
+            except ValueError as e:
+                print(f"Can't build ImgUrl: {e}")
+                image_url = ""
+
             movies.append({"image_url": image_url, "title": movie["title"]})
 
     return TEMPLATES.TemplateResponse("index.html.jinja",
