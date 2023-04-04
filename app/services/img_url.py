@@ -9,7 +9,7 @@ class ImgUrl:
             if i != -1:
                 break
         else:
-            raise ValueError("Not found in " + url)
+            raise ValueError("API_VERSIONS not found in " + url)
 
         self.url = url[:i]
         self.api_version = v
