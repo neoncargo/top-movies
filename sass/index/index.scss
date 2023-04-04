@@ -15,5 +15,7 @@
   grid-template-columns: repeat(auto-fill, var(--movie-card-width));
   justify-content: center;
   gap: 1em;
-  padding: 2em 2em;
+  padding: 2em 0;
+  width: 80%;
+  margin: 0 auto;
 }
