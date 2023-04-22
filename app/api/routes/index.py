@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Request, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
@@ -15,7 +15,13 @@ router = APIRouter()
 @router.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     async with httpx.AsyncClient() as client:
-        response = await client.get(MOST_POPULAR_URL)
+        try:
+            response = await client.get(MOST_POPULAR_URL)
+        except httpx.RequestError as e:
+            print(f"Can't get \"{MOST_POPULAR_URL}\": {e}")
+            raise HTTPException(
+                status_code=503, detail="IMDB API not available")
+
         response = response.json()
 
         movies = []
