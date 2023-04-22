@@ -2,7 +2,12 @@
 
 @use 'common/button';
 
-@use 'common/header_footer';
+@use 'common/green-bg';
+
+@use 'common/hover-focus-dim';
+@use 'common/hover-focus-outline';
+
+@use 'common/header-footer';
 
 @use 'index/index';
 @use 'index/movie-card';

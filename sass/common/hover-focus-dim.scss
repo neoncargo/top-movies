@@ -1,0 +1,6 @@
+.hover-focus-dim {
+    transition: all 0.2s ease 0s;
+    &:hover, &:focus {
+        filter: opacity(75%);
+    }
+}

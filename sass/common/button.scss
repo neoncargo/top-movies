@@ -1,23 +1,11 @@
 .button {
+    padding: 0.6em 1em;
 
-border: solid 1px var(--button-border-color);
-border-radius: 5px;
-padding: 0.6em 1em;
+    border: solid 1px var(--button-border-color);
+    border-radius: 5px;
 
-transition: all 0.2s ease 0s;
-
-&:focus, &:hover {
-	filter: brightness(75%);
-}
-
-&:active {
-	background-color: #5b805b;
-}
-
-}
-
-.green-bg {
-
-background-color: #26964b;
-
+    transition: all 0.2s ease 0s;
+    &:active {
+        background-color: #5b805b;
+    }
 }

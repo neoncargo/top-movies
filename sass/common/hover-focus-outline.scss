@@ -1,0 +1,8 @@
+.hover-focus-outline {
+    outline: solid 1px transparent;
+
+    transition: all 0.2s ease 0s;
+    &:hover, &:focus {
+        outline-color: white;
+    }
+}
