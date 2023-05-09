@@ -44,12 +44,16 @@ header {
         position: relative;
 
         display: grid;
-        gap: 0.5em;
+        gap: 0.3em;
 
         grid-auto-flow: column;
 
         .username {
             align-self: center;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
 
         .material-icons {
