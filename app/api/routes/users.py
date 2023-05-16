@@ -33,7 +33,7 @@ RESPONCE_409 = {
         401: RESPONCE_401,
     },
 )
-async def login_for_access_token(
+def login_for_access_token(
     user_login: schemas.users.UserAuthenticate,
     session: Session = Depends(db.database.get_session)
 ):
