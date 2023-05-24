@@ -4,14 +4,14 @@ function sendData() {
   const XHR = new XMLHttpRequest();
 
   XHR.addEventListener("load", (event) => {
-    response = JSON.parse(event.target.responseText);
+    const response = JSON.parse(event.target.responseText);
     if (response.access_token) {
         localStorage.setItem("access_token", response.access_token);
         window.location.href = "/";
     }
   });
 
-  to_send = JSON.stringify({username: username.value, password: password.value});
+  const to_send = JSON.stringify({username: username.value, password: password.value});
 
   XHR.open("POST", "http://localhost/api/v1/users/login");
   XHR.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
