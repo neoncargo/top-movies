@@ -19,15 +19,15 @@
 
     <div class="form-section">
       <form id="form" class="common-form-container register-form" action="/api/v1/users/new" method="post">
-        <input id="username" type="text" placeholder="Username..." name="username" required>
-        <input id="password" type="password" placeholder="Password..." name="password" required>
-        <input id="password_repeat" type="password" placeholder="Repeat password..." name="repeat_password" required>
+        <input id="input_username" type="text" placeholder="Username..." name="username" required>
+        <input id="input_password" type="password" placeholder="Password..." name="password" required>
+        <input id="input_password_repeat" type="password" placeholder="Repeat password..." name="repeat_password" required>
         <button id="register" class="button green-bg" type="submit" name="action">Register</button>
       </form>
     </div>
 
     <!--# include file="/include_footer.html" -->
 
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
   </body>
 </html>

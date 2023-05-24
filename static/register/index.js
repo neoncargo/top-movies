@@ -1,3 +1,5 @@
+import { SetInitialAuthBoxDisplay } from "../auth-display.js"
+
 function sendData() {
   const XHR = new XMLHttpRequest();
 
@@ -16,12 +18,14 @@ function sendData() {
   XHR.send(to_send);
 }
 
+SetInitialAuthBoxDisplay();
+
 const form = document.getElementById("form");
 
-const username = document.getElementById("username");
+const username = document.getElementById("input_username");
 
-const password = document.getElementById("password");
-const password_repeat = document.getElementById("password_repeat");
+const password = document.getElementById("input_password");
+const password_repeat = document.getElementById("input_password_repeat");
 
 
 const submitButton = document.getElementById("register");
