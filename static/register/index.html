@@ -14,15 +14,8 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
-    <header>
-        <a class="home" href="/"><span class="material-icons md-36">&#xe88a;</span></a>
-        <h1><a href="/">Top Movies</a></h1>
-        <div class="auth-buttons">
-          <a href="/login">
-            <button class="button" type="submit">Login</button>
-          </a>
-        </div>
-    </header>
+
+    <!--# include file="/include_header.html" -->
 
     <div class="form-section">
       <form id="form" class="common-form-container register-form" action="/api/v1/users/new" method="post">
@@ -33,9 +26,7 @@
       </form>
     </div>
 
-    <footer>
-      <a href="/about">About</a>
-    </footer>
+    <!--# include file="/include_footer.html" -->
 
     <script src="index.js"></script>
   </body>
