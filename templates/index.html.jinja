@@ -49,12 +49,12 @@
     <div class="index-content">
 
       {% for movie in movies %}
-        <div class="movie-card">
+        <a class="movie-card" href="movies/{{ movie.id }}">
           <div class="inner-movie">
             <div class="img-section"><img src="{{ movie.image_url }}" alt=""></div>
             <p>{{ movie.title }}</p>
           </div>
-        </div>
+        </a>
       {% endfor %}
 
     </div>

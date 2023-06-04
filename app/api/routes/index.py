@@ -33,7 +33,8 @@ async def index(request: Request):
                 print(f"Can't build ImgUrl: {e}")
                 image_url = ""
 
-            movies.append({"image_url": image_url, "title": movie["title"]})
+            movies.append({"id": movie["id"], "image_url": image_url,
+                           "title": movie["title"]})
 
     return TEMPLATES.TemplateResponse("index.html.jinja",
                                       {"request": request, "movies": movies})
