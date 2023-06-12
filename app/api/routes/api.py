@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from . import index, users
+from . import index, users, movies
 
 router = APIRouter()
 
@@ -8,4 +8,8 @@ router.include_router(index.router)
 router.include_router(
     users.router,
     prefix="/users"
+)
+router.include_router(
+    movies.router,
+    prefix="/movies"
 )
