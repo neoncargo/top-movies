@@ -15,32 +15,8 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
-    <header>
-        <a class="home hover-focus-dim" href="/"><span class="material-icons md-36">&#xe88a;</span></a>
-        <h1><a href="/">Top Movies</a></h1>
 
-        <div class="auth-box">
-            <div id="auth-btns-box" class="auth-btns-box" style="display: none;">
-                <!-- todo: a tags instead of buttons -->
-                <a href="/login">
-                    <button class="button" type="submit">Login</button>
-                </a>
-                <a href="/register">
-                    <button class="button green-bg" type="submit">Register</button>
-                </a>
-            </div>
-
-            <button id="user-box" class="user-box button hover-focus-outline" style="display: none;">
-              <span id="username" class="username">Username</span>
-              <span class="material-icons md-20">&#xe5c5;</span>
-              <div id="dropdown" class="dropdown-box" style="display: none;">
-                <a href="#">Profile</a>
-                <a href="#">Stuff</a>
-                <a id="logout" href="#">Logout</a>
-              </div>
-            </button>
-        </div>
-    </header>
+    <!--# include file="/include_header.html" -->
 
     <div class="search-container">
       <input type="text" placeholder="Search..">
@@ -59,9 +35,7 @@
 
     </div>
 
-    <footer>
-      <a href="/about">About</a>
-    </footer>
+    <!--# include file="/include_footer.html" -->
 
     <script type="module" src="index.js"></script>
   </body>
