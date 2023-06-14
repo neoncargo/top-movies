@@ -24,7 +24,7 @@
         <div class="movie-card">
           <a href="movies/{{ movie.id }}"><span></span></a>
           <div class="inner-movie">
-            <input class="favourite" type="checkbox" name="favourite" id="">
+            <input class="favourite" type="checkbox" name="favourite" value="{{ movie.id }}">
             <div class="img-section"><img src="{{ movie.image_url }}" alt=""></div>
             <p>{{ movie.title }}</p>
           </div>

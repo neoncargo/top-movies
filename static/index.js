@@ -26,3 +26,20 @@ logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("access_token");
     window.location.href = "/";
 });
+
+// "favourite" feature
+let favourite_checkboxes = document.getElementsByClassName("favourite");
+
+for (const element of favourite_checkboxes) {
+    element.addEventListener("change", () => {
+        const XHR = new XMLHttpRequest();
+
+        if (element.checked) {
+            XHR.open("PUT", "http://localhost/api/v1/me/favourites/" + element.value);
+        } else {
+            XHR.open("DELETE", "http://localhost/api/v1/me/favourites/" + element.value);
+        }
+
+        XHR.send();
+    });
+}
