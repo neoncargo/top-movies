@@ -21,13 +21,14 @@
     <div class="index-content">
 
       {% for movie in movies %}
-        <a class="movie-card" href="movies/{{ movie.id }}">
+        <div class="movie-card">
+          <a href="movies/{{ movie.id }}"><span></span></a>
           <div class="inner-movie">
             <input class="favourite" type="checkbox" name="favourite" id="">
             <div class="img-section"><img src="{{ movie.image_url }}" alt=""></div>
             <p>{{ movie.title }}</p>
           </div>
-        </a>
+        </div>
       {% endfor %}
 
     </div>
