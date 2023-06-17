@@ -27,17 +27,17 @@ logoutBtn.addEventListener("click", () => {
     window.location.href = "/";
 });
 
-// "favourite" feature
-let favourite_checkboxes = document.getElementsByClassName("favourite");
+// "favorite" feature
+let favorite_checkboxes = document.getElementsByClassName("favorite");
 
-for (const element of favourite_checkboxes) {
+for (const element of favorite_checkboxes) {
     element.addEventListener("change", () => {
         const XHR = new XMLHttpRequest();
 
         if (element.checked) {
-            XHR.open("PUT", "http://localhost/api/v1/me/favourites/" + element.value);
+            XHR.open("PUT", "http://localhost/api/v1/me/favorites/" + element.value);
         } else {
-            XHR.open("DELETE", "http://localhost/api/v1/me/favourites/" + element.value);
+            XHR.open("DELETE", "http://localhost/api/v1/me/favorites/" + element.value);
         }
 
         XHR.send();
