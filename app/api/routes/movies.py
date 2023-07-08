@@ -13,7 +13,7 @@ router = APIRouter()
 
 
 @router.get("/{movie_id}", response_class=HTMLResponse)
-async def movie(request: Request, movie_id: str):
+async def read_movie(request: Request, movie_id: str):
     async with httpx.AsyncClient() as client:
         try:
             response = await client.get(MOVIE_URL_BASE + movie_id)
