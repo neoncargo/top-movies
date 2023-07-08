@@ -14,3 +14,12 @@ def create_access_token(data: dict) -> str:
     to_encode.update({"exp": expire_timepoint})
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
+
+
+def get_username_from_token(token: str) -> str | None:
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+    except JWTError:
+        return None
+
+    return payload.get("sub")
