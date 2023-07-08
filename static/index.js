@@ -40,6 +40,8 @@ for (const element of favorite_checkboxes) {
             XHR.open("DELETE", "http://localhost/api/v1/me/favorites/" + element.value);
         }
 
+        XHR.setRequestHeader('Authorization', 'Bearer ' + jwt);
+
         XHR.send();
     });
 }
