@@ -1,21 +1,22 @@
 export function SetInitialAuthBoxDisplay(show_only = "all") {
-    const jwt = localStorage.getItem("access_token");
+    let jwt = localStorage.getItem("access_token");
 
-    const userLogged = (jwt && (jwt !== "undefined"));
-    if (userLogged) {
-        const decodedJwt = JSON.parse(atob(jwt.split(".")[1]));
+    let decodedJwt = {};
+    if (jwt) {
+        decodedJwt = JSON.parse(atob(jwt.split(".")[1]));
+        if (decodedJwt.exp * 1000 <= Date.now()) {
+            localStorage.removeItem("access_token");
+            jwt = null;
+        }
+    }
+
+    if (jwt) {
         const username = decodedJwt.sub;
         document.getElementById("username").textContent = username;
-
         let userBox = document.getElementById("user-box");
         userBox.style.display = "grid";
     } else {
         let authBtns = document.getElementById("auth-btns-box");
-        if (!authBtns) {
-            console.error("No auth-btns-box element");
-            return;
-        }
-
         authBtns.style.display = "block";
     }
 }
