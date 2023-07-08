@@ -34,6 +34,22 @@ for (const element of favorite_checkboxes) {
     element.addEventListener("change", () => {
         const XHR = new XMLHttpRequest();
 
+        XHR.addEventListener("load", (event) => {
+            if (XHR.status === 401) {
+                localStorage.removeItem("access_token");
+                console.log("got 401. Delete jwt");
+                SetInitialAuthBoxDisplay();
+            }
+        });
+
+        const jwt = localStorage.getItem("access_token");
+        const userLogged = (jwt && (jwt !== "undefined"));
+
+        if (!userLogged) {
+            console.log("You need to be logged");
+            return;
+        }
+
         if (element.checked) {
             XHR.open("PUT", "http://localhost/api/v1/me/favorites/" + element.value);
         } else {
