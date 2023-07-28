@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 def add_favorite_movie_to_user(
     db: Session,
     user: schemas.users.User,
-    movie: schemas.movies.Movie
+    movie: schemas.movies.MovieId
 ):
     favorite_entry = domain.favorites.Favorite(
         user_id=user.id,
@@ -20,7 +20,7 @@ def add_favorite_movie_to_user(
 def delete_favorite_movie_from_user(
     db: Session,
     user: schemas.users.User,
-    movie: schemas.movies.Movie
+    movie: schemas.movies.MovieId
 ):
     db.query(domain.favorites.Favorite) \
         .filter(
@@ -34,15 +34,15 @@ def delete_favorite_movie_from_user(
 def get_favorites_movies_for_user(
     db: Session,
     user: schemas.users.User
-) -> list[schemas.movies.Movie]:
+) -> list[schemas.movies.MovieId]:
     favorites = db.query(domain.favorites.Favorite) \
         .filter(
             domain.favorites.Favorite.user_id == user.id
         ) \
         .all()
 
-    result: list[schemas.movies.Movie] = []
+    result: list[schemas.movies.MovieId] = []
     for favorite in favorites:
-        result.append(schemas.movies.Movie(id=str(favorite.movie_id)))
+        result.append(schemas.movies.MovieId(id=str(favorite.movie_id)))
 
     return result
