@@ -13,7 +13,7 @@ function sendData() {
 
   const to_send = JSON.stringify({username: username.value, password: password.value});
 
-  XHR.open("POST", "http://localhost/api/v1/users");
+  XHR.open("POST", "/api/v1/users");
   XHR.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   XHR.send(to_send);
 }
@@ -42,7 +42,7 @@ window.addEventListener("load", () => {
     sendData();
   });
 
-  submitButton.addEventListener("mousedown", (event) => {
-    event.preventDefault();
-  });
+//   submitButton.addEventListener("mousedown", (event) => {
+//     event.preventDefault();
+//   });
 });

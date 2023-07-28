@@ -51,9 +51,9 @@ for (const element of favorite_checkboxes) {
         }
 
         if (element.checked) {
-            XHR.open("PUT", "http://localhost/api/v1/me/favorites/" + element.value);
+            XHR.open("PUT", "/api/v1/me/favorites/" + element.value);
         } else {
-            XHR.open("DELETE", "http://localhost/api/v1/me/favorites/" + element.value);
+            XHR.open("DELETE", "/api/v1/me/favorites/" + element.value);
         }
 
         XHR.setRequestHeader('Authorization', 'Bearer ' + jwt);

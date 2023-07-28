@@ -1,7 +1,8 @@
 import { SetInitialAuthBoxDisplay } from "../auth-display.js"
 
-function sendData() {
+function sendData(form) {
   const XHR = new XMLHttpRequest();
+  const FD = new FormData(form);
 
   XHR.addEventListener("load", (event) => {
     const response = JSON.parse(event.target.responseText);
@@ -11,26 +12,18 @@ function sendData() {
     }
   });
 
-  const to_send = JSON.stringify({username: username.value, password: password.value});
-
-  XHR.open("POST", "http://localhost/api/v1/users/login");
-  XHR.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  XHR.send(to_send);
+  XHR.open("POST", "/api/v1/users/login");
+  XHR.send(FD);
 }
 
 SetInitialAuthBoxDisplay();
 
 const form = document.getElementById("form");
 
-const username = document.getElementById("input_username");
-const password = document.getElementById("input_password");
-
-const submitButton = document.getElementById("login");
-
 window.addEventListener("load", () => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    sendData();
+    sendData(form);
   });
 });

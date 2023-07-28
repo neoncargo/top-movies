@@ -4,3 +4,4 @@ static/stylesheets
 __pycache__
 venv
 *.egg-info
+node_modules

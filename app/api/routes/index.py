@@ -1,40 +1,31 @@
-from fastapi import APIRouter, Request, HTTPException
+from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
-import httpx
+# from app.services.img_url import ImgUrl, DEFAULT_FORMAT
 
-from app.services.img_url import ImgUrl, DEFAULT_FORMAT
+from app.services import movies_db_api
 
 TEMPLATES = Jinja2Templates(directory="../templates")
-MOST_POPULAR_URL = "https://imdb-api.com/en/API/MostPopularMovies/k_ofriojs4"
 
 router = APIRouter()
 
 
 @router.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    async with httpx.AsyncClient() as client:
-        try:
-            response = await client.get(MOST_POPULAR_URL)
-        except httpx.RequestError as e:
-            print(f"Can't get \"{MOST_POPULAR_URL}\": {e}")
-            raise HTTPException(
-                status_code=503, detail="IMDB API not available")
+    movies = await movies_db_api.get_popular()
 
-        response = response.json()
+    movies_template = []
+    for i in range(100):
+        if i >= len(movies):
+            break
 
-        movies = []
-        for i in range(100):
-            movie = response["items"][i]
-            try:
-                image_url = ImgUrl(movie["image"]).serialize(DEFAULT_FORMAT)
-            except ValueError as e:
-                print(f"Can't build ImgUrl: {e}")
-                image_url = ""
+        movie = movies[i]
 
-            movies.append({"id": movie["id"], "image_url": image_url,
-                           "title": movie["title"]})
+        movies_template.append({"id": movie.id,
+                                "image_url": movie.image_url,
+                                "title": movie.title})
 
     return TEMPLATES.TemplateResponse("index.html.jinja",
-                                      {"request": request, "movies": movies})
+                                      {"request": request,
+                                       "movies": movies_template})
