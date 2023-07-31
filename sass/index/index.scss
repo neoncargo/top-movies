@@ -1,3 +1,17 @@
+.search-container {
+  display: flex;
+  justify-content: center;
+
+  padding-top: 1em;
+
+  input[type=text] {
+    padding: 0.5em 1em;
+
+    border: solid 1px var(--content-border-color);
+    border-radius: 5px;
+  }
+}
+
 .index-content {
   display: grid;
   grid-template-columns: repeat(auto-fill, var(--movie-card-width));
