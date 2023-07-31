@@ -8,4 +8,4 @@ class MovieId(BaseModel):
 class FullMovieData(MovieId):
     title: str
     description: str
-    image_url: str
+    image_url: str | None

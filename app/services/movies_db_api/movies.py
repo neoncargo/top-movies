@@ -42,7 +42,10 @@ async def get_popular() -> list[FullMovieData]:
     return result
 
 
-def construct_image_url(poster_path: str):
+def construct_image_url(poster_path: str | None):
+    if poster_path is None:
+        return None
+
     return "/images/t/p/w500" + poster_path
 
 
@@ -61,5 +64,24 @@ async def get_movie(id: str) -> FullMovieData:
         description=response_json["overview"],
         image_url=construct_image_url(response_json["poster_path"])
     )
+
+    return result
+
+
+async def search(query: str) -> list[FullMovieData]:
+    URL = "https://api.themoviedb.org/3/search/movie?query=" + query
+
+    response_json: dict
+    async with aiohttp.ClientSession() as session:
+        response_json = await _get_json(session, URL)
+
+    result: list[FullMovieData] = []
+    for movie in response_json["results"]:
+        result.append(FullMovieData(
+            id=movie["id"],
+            title=movie["title"],
+            description=movie["overview"],
+            image_url=construct_image_url(movie["poster_path"])
+        ))
 
     return result
