@@ -11,6 +11,11 @@ header, footer {
     }
 }
 
+h1 {
+    font-size: 2em;
+    text-align: center;
+}
+
 header {
     .material-icons {
         user-select: none;
@@ -23,8 +28,6 @@ header {
 
     > *:nth-child(1) { margin-right: auto; }
     > *:nth-child(3) { margin-left: auto; }
-
-    h1 { font-size: 2em; }
 
     .home {
         transition: all 0.2s ease 0s;
