@@ -26,7 +26,8 @@ def delete_favorite_movie_from_user(
         .filter(
             domain.favorites.Favorite.user_id == user.id,
             domain.favorites.Favorite.movie_id == movie.id
-        )
+        ) \
+        .delete()
 
     db.commit()
 

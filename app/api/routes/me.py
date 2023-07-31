@@ -1,4 +1,5 @@
 from typing import Annotated
+import asyncio
 from sqlalchemy.orm import Session
 
 from sqlalchemy.exc import IntegrityError
@@ -9,6 +10,7 @@ from fastapi import APIRouter, Depends, status, Response
 from app.models import schemas
 import app.db as db
 from app.api.dependencies.authentication import get_current_user
+from services import movies_db_api
 
 router = APIRouter()
 
@@ -24,7 +26,7 @@ def add_favorite_movie(
         db.favorites.add_favorite_movie_to_user(
             session,
             user,
-            schemas.movies.Movie(id=movie_id)
+            schemas.movies.MovieId(id=movie_id)
         )
     except IntegrityError as e:
         if isinstance(e.orig, UniqueViolation):
@@ -42,16 +44,25 @@ def delete_favorite_movie(
     db.favorites.delete_favorite_movie_from_user(
         session,
         user,
-        schemas.movies.Movie(id=movie_id)
+        schemas.movies.MovieId(id=movie_id)
     )
 
 
 @router.get("/favorites")
-def get_favorite_movies(
+async def get_favorite_movies(
     user: Annotated[schemas.users.User, Depends(get_current_user)],
     session: Annotated[Session, Depends(db.database.get_session)]
-) -> list[schemas.movies.Movie]:
-    return db.favorites.get_favorites_movies_for_user(
-        session,
-        user
-    )
+) -> list[schemas.movies.FullMovieData]:
+    fav_movie_ids: list[schemas.movies.MovieId] = \
+        db.favorites.get_favorites_movies_for_user(
+            session,
+            user
+        )
+
+    result = []
+    for movie in fav_movie_ids:
+        result.append(movies_db_api.get_movie(movie.id))
+
+    result = await asyncio.gather(*result)
+
+    return result
