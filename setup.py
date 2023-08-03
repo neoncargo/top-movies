@@ -8,6 +8,7 @@ setup(
         'fastapi[all]',
         'aiohttp',
         'sqlalchemy',
+        'alembic',
         'python-jose[cryptography]',
         'passlib[bcrypt]',
         'psycopg2-binary',
