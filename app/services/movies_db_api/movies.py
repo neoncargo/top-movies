@@ -3,7 +3,7 @@ import os
 
 from fastapi import HTTPException
 
-from models.schemas.movies import FullMovieData
+from app.models.schemas.movies import FullMovieData
 
 MOVIES_API_TOKEN = os.environ["MOVIES_API_TOKEN"]
 
