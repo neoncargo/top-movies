@@ -1,3 +1,3 @@
-from . import favorites, users
+from . import favorites, users, base
 
-__all__ = ['favorites', 'users']
+__all__ = ['favorites', 'users', 'base']
