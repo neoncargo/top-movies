@@ -12,6 +12,8 @@ setup(
         'python-jose[cryptography]',
         'passlib[bcrypt]',
         'psycopg2-binary',
-        'pydantic<2.0.0'
+        'pydantic<2.0.0',
+        'httpx',
+        'pytest'
     ],
 )
