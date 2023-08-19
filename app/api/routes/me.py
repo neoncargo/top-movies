@@ -10,7 +10,7 @@ from fastapi import APIRouter, Depends, status, Response
 from app.models import schemas
 import app.db as db
 from app.api.dependencies.authentication import get_current_user
-from services import movies_db_api
+from app.services import movies_db_api
 
 router = APIRouter()
 
