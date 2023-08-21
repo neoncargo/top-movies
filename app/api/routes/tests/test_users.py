@@ -8,8 +8,9 @@ from app.models.schemas.users import UserAuthenticate
 
 from app.main import app
 from app.db.database import get_session
+from app.db.users import get_user_by_username
 from app.models.domain.base import SqlBase
-from app.services import jwt
+from app.services import jwt, security
 
 SQLALCHEMY_DATABASE_URL = "sqlite://"
 
@@ -58,3 +59,12 @@ def test_register_user():
     assert \
         jwt.get_username_from_token(response["access_token"]) == \
         user.username
+
+    user_from_db = get_user_by_username(TestingSessionLocal(), user.username)
+
+    assert \
+        str(user_from_db.username) == user.username and \
+        security.verify_password(
+            user.password,
+            str(user_from_db.password_hash)
+        )
