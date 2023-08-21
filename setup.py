@@ -14,6 +14,7 @@ setup(
         'psycopg2-binary',
         'pydantic<2.0.0',
         'httpx',
-        'pytest'
+        'pytest',
+        'pytest-postgresql'
     ],
 )
