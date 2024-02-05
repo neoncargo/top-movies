@@ -6,10 +6,11 @@ from app.api.routes import api
 app = FastAPI(
     swagger_ui_parameters={
         "displayRequestDuration": True,
-    }
+    },
+    root_path="/api/v1"
 )
 
 app.include_router(api.router)
 
 if __name__ == "__main__":
-    uvicorn.run(app, root_path="/api/v1")
+    uvicorn.run(app)
