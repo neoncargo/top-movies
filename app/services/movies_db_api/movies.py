@@ -1,5 +1,8 @@
-import aiohttp
 import os
+import logging as log
+
+import aiohttp
+from aiohttp.client_exceptions import ClientError
 
 from fastapi import HTTPException
 
@@ -14,13 +17,20 @@ async def _get_json(session: aiohttp.ClientSession, url: str):
         "Authorization": "Bearer " + MOVIES_API_TOKEN
     }
 
-    async with session.get(url, headers=headers) as response:
-        if response.status != 200:
-            raise HTTPException(
-                status_code=503, detail="Movies API not available"
-            )
+    api_exception = HTTPException(
+        status_code=503,
+        detail="Movies API not available"
+    )
 
-        return await response.json()
+    try:
+        async with session.get(url, headers=headers) as response:
+            if response.status != 200:
+                raise api_exception
+
+            return await response.json()
+    except ClientError as e:
+        log.warn(e)
+        raise api_exception
 
 
 async def get_popular() -> list[FullMovieData]:
