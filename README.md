@@ -15,4 +15,4 @@
 
 ## Launch
 
-	cd app && uvicorn main:app --reload --root-path /api/v1
+	cd app && uvicorn main:app --reload --proxy-headers --forwarded-allow-ips="*"
