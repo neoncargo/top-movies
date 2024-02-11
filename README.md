@@ -11,7 +11,7 @@
 
 ### Set nginx config
 
-	sudo cp configs/nginx.conf /etc/nginx/ && sudo nginx -s reload
+	sudo cp configs/nginx.conf configs/backend_proxy.conf /etc/nginx/ && sudo nginx -s reload
 
 ## Launch
 
