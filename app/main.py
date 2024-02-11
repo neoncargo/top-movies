@@ -7,7 +7,8 @@ app = FastAPI(
     swagger_ui_parameters={
         "displayRequestDuration": True,
     },
-    root_path="/api/v1"
+    root_path="/api/v1",
+    redirect_slashes=False
 )
 
 app.include_router(api.router)
