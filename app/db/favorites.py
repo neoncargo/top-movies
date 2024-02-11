@@ -17,6 +17,7 @@ def add_favorite_movie_to_user(
     db.refresh(favorite_entry)
 
 
+# TODO: check for existence or recover from DB error
 def delete_favorite_movie_from_user(
     db: Session,
     user: schemas.users.User,
