@@ -1,0 +1,22 @@
+.page-content {
+    width: 60%;
+    margin: 0 auto;
+    padding: 2em 0;
+
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+
+
+
+    .img-section {
+        height: 500px;
+    }
+
+    .movie-text-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+}

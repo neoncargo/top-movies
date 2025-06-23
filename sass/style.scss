@@ -9,8 +9,12 @@
 
 @use 'common/header-footer';
 
+@use 'common/img-section.scss';
+
 @use 'index/index';
 @use 'index/movie-card';
+
+@use 'movie.scss';
 
 @use 'forms/form-section';
 
