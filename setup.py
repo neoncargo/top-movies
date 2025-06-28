@@ -15,6 +15,7 @@ setup(
         'pydantic<2.0.0',
         'httpx',
         'pytest',
-        'pytest-postgresql'
+        'pytest-postgresql',
+        'python-dotenv'
     ],
 )
